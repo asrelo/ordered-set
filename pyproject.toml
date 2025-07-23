@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools >=68,<81"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "asrelo-ordered-set"
+license = "LGPL-3.0-or-later"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+requires-python = ">=3.10"
+dependencies = ["typing_extensions >=4.13.2,<5"]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = [
+    "pytest >=8.4.1,<9",
+    "asrelo-pytest-universal-indirection ~=0.3.0",
+    "coverage ~=7.9",
+]
+dev = [
+    "flake8 ~=7.3",
+    # XXX: flake8-docstrings is based on the tool pydocstyle which was deprecated in 2023 in favor
+    # of Ruff.
+    "flake8-docstrings ~=1.7",
+    "flake8-quotes ~=3.4",
+    "flake8-pytest-style ~=2.1",
+    #"isort >=6.0.1,<7",
+    #"pre-commit ~=4.2",
+]
+
+[tool.setuptools]
+packages = ["ordered_set"]
+
+#[tool.setuptools.packages.find]
+#include = ["ordered_set*"]
+
+[tool.setuptools.package-data]
+ordered_set = ["VERSION"]
+
+[tool.setuptools.dynamic]
+version = { file = ["ordered_set/VERSION"] }
+
+[tool.coverage.run]
+branch = true
+source = ["ordered_set"]
+
+[tool.coverage.report]
+exclude_also = [
+    "\\bif\\s+__debug__:\\s*$",
+    "^\\s+raise\\s+NotImplementedError\\b",
+    "^\\s+return\\s+NotImplemented\\b",
+    "^\\s+\\.\\.\\.\\s*$",
+]
+
+[tool.coverage.html]
+directory = "coverage_report/html"
+
+#[tool.isort]
+#line_length = 99
+#indent = "    "
+#force_alphabetical_sort_within_sections = true
+## 3 - Vertical Hanging Indent:
+## <https://pycqa.github.io/isort/docs/configuration/multi_line_output_modes.html>
+#multi_line_output = 3
+#honor_noqa = true
+#classes = ["ordered_set"]

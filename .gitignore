@@ -1,0 +1,23 @@
+### Python ###
+__pycache__/
+*.py[cod]
+*.egg-info
+# pytest
+.pytest_cache/
+# coverage.py
+.coverage.*
+.coverage
+# tox
+.tox
+
+### Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+
+### Project
+# building
+dist/
+# virtual environments
+.venv/
+# coverage reports
+coverage_report/

@@ -1,0 +1,44 @@
+[flake8]
+exclude =
+    .git,
+    __pycache__,
+    dist,
+    *.egg-info,
+    .venv
+ignore =
+    # start of defaults
+    #E121,
+    #E123,
+    #E126,
+    E226,
+    #E24,
+    W503,
+    #W504
+    # end of defaults
+    E221,
+    E241,
+    E265,
+    # TODO: Docstrings.
+    # start of "missing docstring" warnings
+    D100,
+    D101,
+    D102,
+    D103,
+    D104,
+    D105,
+    D106,
+    D107,
+    # end of "missing docstring" warnings
+    PT007
+max-line-length = 99
+max-doc-length = 79
+indent-size = 4
+#doctests = True
+max-complexity = 12
+
+# flake8-docstrings
+docstring-convention = google
+
+# flake8-quotes
+inline-quotes = '
+avoid-escape = no
