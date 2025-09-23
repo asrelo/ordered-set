@@ -1,6 +1,6 @@
 # XXX: tox does not support generative environment lists in TOML
 
-requires = ["tox ~=4.27"]
+requires = ["tox ~=4.29"]
 env_list = ["3.13", "3.12", "3.11", "3.10"]
 
 # XXX: This is... interesting.
